@@ -1,9 +1,14 @@
 <?php
-	function __autoload($class) {
+	//echo $class;
+	/*function __autoload($class) {
 		require_once "Classes/$class.php";
-	}
-	require_once "Classes/transfertdonne.php";
-	require_once "Classes/xlsfileDAO.php";
+	}*/
+	require_once "PHPExcel.php";
+	require_once "transfertdonne.php";
+	require_once "DAO.php";
+	require_once "MaBD.php";
+	require_once "maBdDao.php";
+	
 	//require_once "Classes/PHPExcel.php";
 	
 	// Instanciation d'un objet xlsfileDAO
@@ -16,6 +21,6 @@
 	$tabForDb = [];
 	$tabForDb = recupererLigneExcel ( recupererDernierFichier ( "W:\\CHARGE_SAP\\Extraction_OF" ) );
 	foreach ( $tabForDb as $key => $value ) {
-		$maBD->insert ( $value );
+		$maBD->insert($value);
 	}
 ?>
