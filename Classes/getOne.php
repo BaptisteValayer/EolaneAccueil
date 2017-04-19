@@ -1,9 +1,8 @@
 <?php
-	function __autoload($class) {
-		require_once "Classes/$class.php";
-	}
-	require_once "Classes/xlsfileDAO.php";
-	require_once "Classes/transfertdonne.php";
+	require_once "DAO.php";
+	require_once "MaBD.php";
+	require_once "MaBdDao.php";
+	require_once "transfertdonne.php";
 	
 	/*
 	 * On test si les données trasmisent par l'url existe

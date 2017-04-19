@@ -1,6 +1,6 @@
 <?php
 	
-	require_once "Classes/transfertdonne.php";
+	require_once "transfertdonne.php";
 	
 	/*
 	 * Test si les données trasmisent par l'url existe
