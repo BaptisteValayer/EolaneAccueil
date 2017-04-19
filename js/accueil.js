@@ -7,14 +7,14 @@ function findObject() {
 	$("i").parent().remove();
 
 	// Récupération de l'élément dans la BD grâce à son code IPR
-	$.getJSON("getOne.php", {ipr : iprCode},function(data) {
+	$.getJSON("Classes/getOne.php", {ipr : iprCode},function(data) {
 		if (data == false || data == "ERROR") {
 			alert("le code IPR n'existe pas");
 			return 0;
 		}
 		code = data["codeArticle"];
 		// Récupère le le lien permettant d'accéder à la fiche produit
-		$.get("getLink.php", {codeArticle : code}, function(data) {
+		$.get("Classes/getLink.php", {codeArticle : code}, function(data) {
 			if (data == false || data == "ERROR") {
 				alert("La fiche du produit est introuvable");
 				return 0;
@@ -67,7 +67,7 @@ function findObject() {
  * Appel de UpdateDataBase.php et ouvre un popUp quand elle s'est bien terminée
  */
 function resetDatabase() {
-	$.post("UpdateDataBase.php").done(function() {
+	$.post("Classes/UpdateDataBase.php").done(function() {
 		alert("database mise à jour");
 	});
 }
