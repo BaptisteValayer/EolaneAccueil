@@ -1,10 +1,9 @@
 <?php
-	function __autoload($class) {
-		require_once "Classes/$class.php";
-	}
-	require_once "Classes/transfertdonne.php";
-	require_once "Classes/xlsfileDAO.php";
-	//require_once "Classes/PHPExcel.php";
+	require_once "PHPExcel.php";
+	require_once "transfertdonne.php";
+	require_once "DAO.php";
+	require_once "MaBD.php";
+	require_once "maBdDao.php";
 	
 	// Instanciation d'un objet xlsfileDAO
 	$maBD = new MaBdDao( MaBD::getInstance () );

@@ -13,7 +13,7 @@
 		}
 		
 		public function insert($obj) {
-			$stmt = $this->pdo->prepare ( 'INSERT INTO iprtable (iprCode, codeArticle, lien) VALUES (?, ?)' );
+			$stmt = $this->pdo->prepare ( 'INSERT INTO iprtable (iprCode, codeArticle) VALUES (?, ?)' );
 			$res = $stmt->execute ( array (
 					$obj ['ipr'],
 					$obj ['article'],
