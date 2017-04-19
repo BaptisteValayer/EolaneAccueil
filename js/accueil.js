@@ -7,14 +7,15 @@ function findObject() {
 	$("i").parent().remove();
 
 	// Récupération de l'élément dans la BD grâce à son code IPR
-	$.getJSON("Classes/getOne.php", {ipr : iprCode},function(data) {
+	$.getJSON("Classes\\getOne.php", {ipr : iprCode},function(data) {
 		if (data == false || data == "ERROR") {
 			alert("le code IPR n'existe pas");
 			return 0;
 		}
 		code = data["codeArticle"];
 		// Récupère le le lien permettant d'accéder à la fiche produit
-		$.get("Classes/getLink.php", {codeArticle : code}, function(data) {
+		$.get("Classes\\getLink.php", {codeArticle : code}, function(data) {
+			console.log(data);
 			if (data == false || data == "ERROR") {
 				alert("La fiche du produit est introuvable");
 				return 0;
@@ -30,7 +31,7 @@ function findObject() {
 			filepath = data.split(filename)[0];
 
 			// Création d'un élément <a> qui permettra de télécharger la fiche produit
-			a = $("<a>").attr("href","download.php?filename=" + filename + "&path=" + filepath)
+			a = $("<a>").attr("href","Classes\\download.php?filename=" + filename + "&path=" + filepath)
 						.attr("download", "fichier");
 			
 			// Création d'un élément <i> contenu dans le <a> qui a une apparence différente suivant l'extension de la fiche produit
@@ -60,7 +61,7 @@ function findObject() {
 				break;
 			}
 		});//fin getLink.php
-	});//fin getOne.php
+  });//fin getOne.php
 }
 
 /**

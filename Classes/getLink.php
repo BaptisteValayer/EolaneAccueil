@@ -19,18 +19,18 @@
 	/*
 	 * Test de l'existence d'un fichier avec $codeArticle dans son nom dans le dossier $directoryIprValide
 	 */
-	$file = IsExisting ( $codeArticle, $directoryIprValide );
-	if ($file!== 0) {
-		return "file:\\\\\\S:\\Methodes Production\\0- IPR VALIDE\\".$file;
+	//$file = IsExisting ( $codeArticle, $directoryIprValide );
+	if ( ($file = IsExisting ( $codeArticle, $directoryIprValide )) !== 0) {
+		echo "file:\\\\\\S:\\Methodes Production\\0- IPR VALIDE\\".$file;
 	}
-	
 	/*
-	 * Test de l'existence d'un fichier avec $codeArticle dans son nom dans le dossier $directoryIprAutorisee
-	 */
-	$file= IsExisting ( $codeArticle, $directoryIprAutorisee );
-	if ($file!== 0) {
-		return "file:\\\\\\S:\\Methodes Production\\1- IPR AUTORISEES\\".$file;
+	* Test de l'existence d'un fichier avec $codeArticle dans son nom dans le dossier $directoryIprAutorisee
+	*/
+	else if ( ($file= IsExisting ( $codeArticle, $directoryIprAutorisee )) !== 0) {
+			echo "file:\\\\\\S:\\Methodes Production\\1- IPR AUTORISEES\\".$file;
+		
 	}
-	return $file;
-
+	else {
+		echo $file;
+	}
 ?>

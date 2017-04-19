@@ -18,5 +18,5 @@
 	$res = $maBD->getOne ( $IPR );
 	
 	// Retourne le résultat de getOne et l'encode en JSON
-	return json_encode ( $res );
+	echo json_encode ( $res );
 ?>
