@@ -15,7 +15,7 @@
 	}
 	
 	// Instanciation d'un objet xlsfileDAO
-	$maBD = new xlsfileDAO ( MaBD::getInstance () );
+	$maBD = new MaDdDao( MaBD::getInstance () );
 	$res = $maBD->getOne ( $IPR );
 	
 	// Retourne le résultat de getOne et l'encode en JSON

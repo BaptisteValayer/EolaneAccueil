@@ -4,8 +4,8 @@
 	function __autoload($class) {
 		require_once "Classes/$class.php";
 	}
-	$maBD = new xlsfileDAO ( MaBD::getInstance () );
-	require_once ("InfoBox.php");
+	$maBD = new MaDdDao ( MaBD::getInstance () );
+	//require_once ("InfoBox.php");
 
 ?>
 <!DOCTYPE html>
