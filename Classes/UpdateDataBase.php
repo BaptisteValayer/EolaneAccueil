@@ -7,7 +7,7 @@
 	require_once "Classes/PHPExcel.php";
 	
 	// Instanciation d'un objet xlsfileDAO
-	$maBD = new MaDdDao( MaBD::getInstance () );
+	$maBD = new MaBdDao( MaBD::getInstance () );
 	
 	// Suppretion de toutes les lignes de la table
 	$maBD->dropALL ();

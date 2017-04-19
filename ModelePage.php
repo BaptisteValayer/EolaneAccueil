@@ -4,7 +4,7 @@
 	function __autoload($class) {
 		require_once "Classes/$class.php";
 	}
-	$maBD = new MaDdDao ( MaBD::getInstance () );
+	$maBD = new MaBdDao ( MaBD::getInstance () );
 	//require_once ("InfoBox.php");
 
 ?>
