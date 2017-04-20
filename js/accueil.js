@@ -20,11 +20,11 @@ function findObject() {
 				alert("La fiche du produit est introuvable");
 				return 0;
 			}
-			
+
 			// Récupération de l'extension du fichier
 			splitedExtension = data.split(".");
 			fileformat = splitedExtension[splitedExtension.length - 1];
-			
+
 			// Récupération du chemin et du nom du fichier
 			splitedFileName = data.split("\\");
 			filename = splitedFileName[splitedFileName.length - 1];
@@ -33,7 +33,7 @@ function findObject() {
 			// Création d'un élément <a> qui permettra de télécharger la fiche produit
 			a = $("<a>").attr("href","Classes\\download.php?filename=" + filename + "&path=" + filepath)
 						.attr("download", "fichier");
-			
+
 			// Création d'un élément <i> contenu dans le <a> qui a une apparence différente suivant l'extension de la fiche produit
 			switch (fileformat) {
 			case "xlsx":
@@ -42,7 +42,7 @@ function findObject() {
 						.attr("aria-hidden", "true")
 						.css("color", "#0d6a0e")
 						.appendTo(a);
-				a.appendTo("body");
+				a.appendTo($("#SearchResult"));
 				break;
 			case "docx":
 			case "doc":
@@ -50,14 +50,14 @@ function findObject() {
 						.attr("aria-hidden", "true")
 						.css("color", "#1d318d")
 						.appendTo(a);
-				a.appendTo("body");
+				a.appendTo($("#SearchResult"));
 				break;
 			case "pdf":
 				$("<i>").addClass("fa fa-file-pdf-o fa-5x")
 						.attr("aria-hidden","true")
 						.css("color", "#ff421a")
 						.appendTo(a);
-				a.appendTo("body");
+				a.appendTo($("#SearchResult"));
 				break;
 			}
 		});//fin getLink.php
@@ -68,7 +68,7 @@ function findObject() {
  * Appel de UpdateDataBase.php et ouvre un popUp quand elle s'est bien terminée
  */
 function resetDatabase() {
-	$.post("Classes/UpdateDataBase.php").done(function() {
+	$.post("Classes\\UpdateDataBase.php").done(function(data) {
 		alert("database mise à jour");
 	});
 }
@@ -84,3 +84,10 @@ function hideVisibleSearch() {
 		form.css("visibility", "hidden");
 	}
 }
+
+	$(document).ready(function() {
+		var time = new timer();
+		time.init();
+		time.affiche();
+		setInterval(function() {time.affiche();},60000);
+	});

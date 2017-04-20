@@ -18,6 +18,7 @@
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/accueil.js"></script>
+	<script src="js/timer.js"></script>
 </head>
 <body>
 
@@ -25,7 +26,7 @@
 <body>
 
 	<nav class="navbar navbar-inverse navbar-fixed-top">
-	
+
 		<div class="container">
 			<div class="navbar-header">
 				<a class="navbar-brand">
@@ -50,42 +51,42 @@
 					<figcaption>Rechercher un IPR</figcaption>
 				</figure>
 			</a>
-			
+
 			<a href="http://10.100.13.22/auth">
 				<figure id="figureimg">
 					<img id="logo" src="img/logosap.png"></img>
 					<figcaption>Portail opérateur SAP</figcaption>
 				</figure>
 			</a>
-			
+
 			<a href="http://10.100.13.53/fr">
 				<figure id="figureimg">
 					<img id="logo" src="img/logoeolity.png"></img>
 					<figcaption>Éolity</figcaption>
 				</figure>
 			</a>
-			
+
 			<a href="file:///\\val-fs01\services\SANTE%20SECURITE%20ENVIRONNEMENT\BDN008%20Portail%20SSE.xls">
 				<figure id="figureimg">
 					<img id="logo" src="img/logomedic.png"></img>
 					<figcaption>Portail santé et sécurité</figcaption>
 				</figure>
 			</a>
-			
+
 			<a href="file:///\\val-fs01\services\QUALITE\1.%20REFERENTIEL\SMQ000_A%20-Référentiel%20Qualité%20Valence.xls">
 				<figure id="figureimg">
 					<img id="logo" src="img/logoqualite.png"></img>
 					<figcaption>Référenciel qualité</figcaption>
 				</figure>
 			</a>
-			
+
 			<a href="http://lybod01.eolane.com:8089/">
 				<figure id="figureimg">
 					<img id="logo" src="img/logobadgeur.png"></img>
 					<figcaption>Éolane badgeur</figcaption>
 				</figure>
 			</a>
-			
+
 			<a href="http://hello.eolane.com/SitePages/Home.aspx">
 				<figure id="figureimg">
 					<img id="logo" src="img/logohello.png"></img>
@@ -94,18 +95,18 @@
 			</a>
 		</div>
 	</div>
-	
+
 	<div id="form">
-	
+
 		<input type="text" id="IPRZone" value=""></input>
-		<button type="button" class="btn btn-warning" onclick="findObject();">
+		<button type="button" class="btn btn-primary" onclick="findObject();">
 			<span class="glyphicon glyphicon-search"></span>
 		</button>
 		<button type="button" class="btn btn-warning" onclick="resetDatabase();">
 			<span class="glyphicon glyphicon-refresh"></span>
 		</button>
 	</div>
-	
-	<div id="InfoBox"></div>
+
+	<div id="SearchResult"></div>
 </body>
 </html>
