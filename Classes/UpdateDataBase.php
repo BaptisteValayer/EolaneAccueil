@@ -3,7 +3,7 @@
 	require_once "transfertdonne.php";
 	require_once "DAO.php";
 	require_once "MaBD.php";
-	require_once "maBdDao.php";
+	require_once "MaBdDao.php";
 
 
 	// Instanciation d'un objet xlsfileDAO
@@ -11,11 +11,10 @@
 
 	// Suppretion de toutes les lignes de la table
 	$maBD->dropALL();
-
 	// Recherche du dernier fichier excel en date et insertion dans la base de donn�e
 	$tabForDb = [];
 	$tabForDb = recupererLigneExcel ( recupererDernierFichier ( "\\\\val-fs01\\EOLE-SAP\\CHARGE_SAP\\Extraction_OF" ) );
 	foreach ( $tabForDb as $key => $value ) {
-		$maBD->insert($value);
+		$res = $maBD->insert($value);
 	}
 ?>

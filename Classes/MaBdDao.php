@@ -1,30 +1,40 @@
 <?php
 	/*
-	 * Une class qui va permettre d'interréagir avec la base de donnée
+	 * Une class qui va permettre d'interrï¿½agir avec la base de donnï¿½e
 	 */
 	class MaBdDao extends DAO {
-		public function getOne($key) {
-			$stmt = $this->pdo->prepare ( 'SELECT codeArticle FROM iprtable WHERE iprCode = ?' );
+		protected $table = "iprtable";
+
+		public function getOneArticle($key) {
+			$stmt = $this->pdo->prepare ( "SELECT article FROM $this->table WHERE ipr = ?" );
 			$stmt->execute ( array (
-					$key 
+					$key
 			) );
 			$row = $stmt->fetch ( PDO::FETCH_ASSOC );
 			return $row;
 		}
-		
+
 		public function insert($obj) {
-			$stmt = $this->pdo->prepare ( 'INSERT INTO iprtable (iprCode, codeArticle) VALUES (?, ?)' );
-			$res = $stmt->execute ( array (
-					$obj['ipr'],
-					$obj['article'],
-			) );
-			return $res;
+			$fieldList = "";
+			$valueList = array();
+			$textRequete = "";
+
+			foreach ($obj as $key => $value) {
+				$fieldList = $fieldList."$key, ";
+				array_push($valueList,$value);
+				$textRequete = $textRequete."?, ";
+			}
+			$fieldList = substr($fieldList, 0, -2);
+      $textRequete = substr($textRequete, 0, -2);
+
+			$stmt = $this->pdo->prepare ( "INSERT INTO $this->table ($fieldList) VALUES ($textRequete)" );
+			$res = $stmt->execute ($valueList);
 		}
-		
+
 		public function dropALL() {
-			$stmt = $this->pdo->prepare ( 'DELETE FROM iprtable' );
+			$stmt = $this->pdo->prepare ( "DELETE FROM $this->table" );
 			$res = $stmt->execute ();
-			return $res;
+			return $this->table;
 		}
 	}
 ?>

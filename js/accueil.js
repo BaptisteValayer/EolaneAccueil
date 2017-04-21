@@ -12,7 +12,7 @@ function findObject() {
 			alert("le code IPR n'existe pas");
 			return 0;
 		}
-		code = data["codeArticle"];
+		code = data["article"];
 		// Récupère le le lien permettant d'accéder à la fiche produit
 		$.get("Classes\\getLink.php", {codeArticle : code}, function(data) {
 			console.log(data);
@@ -69,7 +69,7 @@ function findObject() {
  */
 function resetDatabase() {
 	$.post("Classes\\UpdateDataBase.php").done(function(data) {
-		alert("database mise à jour");
+		alert("La base de donnée à été mise à jour");
 	});
 }
 

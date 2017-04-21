@@ -5,7 +5,6 @@
 		require_once "Classes/$class.php";
 	}
 	$maBD = new MaBdDao ( MaBD::getInstance () );
-	//require_once ("InfoBox.php");
 
 ?>
 <!DOCTYPE html>
@@ -20,8 +19,6 @@
 	<script src="js/accueil.js"></script>
 	<script src="js/timer.js"></script>
 </head>
-<body>
-
 
 <body>
 
@@ -55,7 +52,7 @@
 			<a href="http://10.100.13.22/auth">
 				<figure id="figureimg">
 					<img id="logo" src="img/logosap.png"></img>
-					<figcaption>Portail opérateur SAP</figcaption>
+					<figcaption>Opérateur SAP</figcaption>
 				</figure>
 			</a>
 
@@ -69,7 +66,7 @@
 			<a href="file:///\\val-fs01\services\SANTE%20SECURITE%20ENVIRONNEMENT\BDN008%20Portail%20SSE.xls">
 				<figure id="figureimg">
 					<img id="logo" src="img/logomedic.png"></img>
-					<figcaption>Portail santé et sécurité</figcaption>
+					<figcaption>Santé&sécurité</figcaption>
 				</figure>
 			</a>
 

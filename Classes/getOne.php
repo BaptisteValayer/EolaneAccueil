@@ -3,20 +3,20 @@
 	require_once "MaBD.php";
 	require_once "MaBdDao.php";
 	require_once "transfertdonne.php";
-	
+
 	/*
-	 * On test si les données trasmisent par l'url existe
+	 * On test si les donnï¿½es trasmisent par l'url existe
 	*/
 	if (isset ( $_GET ["ipr"] )) {
 		$IPR = $_GET ["ipr"];
 	} else {
 		return "ERROR";
 	}
-	
-	// Instanciation d'un objet xlsfileDAO
+
+	// Instanciation d'un objet MaBdDao
 	$maBD = new MaBdDao( MaBD::getInstance () );
-	$res = $maBD->getOne ( $IPR );
-	
-	// Retourne le résultat de getOne et l'encode en JSON
+	$res = $maBD->getOneArticle( $IPR );
+
+	// Retourne le rï¿½sultat de getOne et l'encode en JSON
 	echo json_encode ( $res );
 ?>
