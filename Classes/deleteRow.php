@@ -5,7 +5,13 @@
 
   $maBD = new bdMessageDAO( MaBD::getInstance () );
 
-  $res = $maBD->getAllMessage();
+  if (isset ( $_GET ["id"] )) {
+		$ID = $_GET ["id"];
+	} else {
+		echo "ERROR";
+	}
+
+  $res = $maBD->dropMsg($ID);
 
   return $res
 

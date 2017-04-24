@@ -1,6 +1,6 @@
 <?php
 
-public class bdMessageDAO extends DAO {
+class bdMessageDAO extends DAO {
   protected $table = "message";
 
   public function getAllMessage() {
@@ -10,11 +10,11 @@ public class bdMessageDAO extends DAO {
     foreach ($stmt->fetchAll(PDO::FETCH_ASSOC) as $row){
         $res[] = $row;
     }
-    return $res;
+    echo json_encode($res);
   }
 
   public function dropDate() {
-    $stmt = $this->pdo->prepare ( "DELETE FROM $this->table WHERE DATE_ADD(dateFin, INTERVAL 1 DAY)<now()" );
+    $stmt = $this->pdo->prepare ( "DELETE FROM $this->table WHERE datefin!='9999-12-31' && DATE_ADD(dateFin, INTERVAL 1 DAY)<now()" );
     $res = $stmt->execute ();
     return $res;
   }
