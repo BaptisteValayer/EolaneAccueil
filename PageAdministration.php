@@ -9,19 +9,31 @@
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/infobox.js"></script>
 	<script src="js/timer.js"></script>
+	<script src="js/adminAccueil.js"></script>
 </head>
 
 <body>
 
   <div>
       <table id="InfoBox">
-        <tr>
-          <th></th>
-          <th>Texte du message</th>
-          <th>Date de Fin(si aucune mettre 9999 en année)</th>
-          <th></th>
-        </tr>
-        <tr id="TrinfoBoxDom"></tr>
+				<thead>
+	        <tr>
+	          <th></th>
+	          <th>Texte du message</th>
+	          <th>Date de Fin d'utilisation du message</th>
+	          <th></th>
+	        </tr>
+				</thead>
+				<tbody id="TrinfoBoxDom">
+        </tbody>
+				<tfoot>
+						<tr>
+								<td><input type="disable"></input></td>
+								<td><input type="text" placeholder="Texte du message"></input></td>
+								<td><input type="text" placeholder="Date de Fin(si aucune mettre 9999 en année)"></input></td>
+								<td><span class="glyphicon glyphicon-plus" onclick="addNewMessage();"></span></td>
+						</tr>
+				</tfoot>
       </table>
   </div>
 

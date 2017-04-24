@@ -1,10 +1,12 @@
 <?php
+  require_once "DAO.php";
   require_once "MaBD.php";
+  require_once "bdMessageDAO.php";
 
-  $maBD = new MaBdDao( MaBD::getInstance () );
+  $maBD = new bdMessageDAO( MaBD::getInstance () );
 
-  $maBD->dropDate();
-  $res = $maBD->getAll( $IPR );
+  $res = $maBD->getAllMessage();
 
+  echo $res
 
  ?>
