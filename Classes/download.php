@@ -1,46 +1,48 @@
 <?php
 	/*
-	 * On test si les données trasmisent par l'url existe
+	 * On test si les donnï¿½es trasmisent par l'url existe
 	 */
 	if (isset ( $_GET ["filename"] ) && isset ( $_GET ["path"] )) {
-		$Fichier_a_telecharger = $_GET ["filename"];
-		$chemin = $_GET ["path"];
+		if(isset ($_GET["unslipt"])){
+			$Fichier_a_telecharger = utf8_decode($_GET ["filename"]);
+			$chemin = utf8_decode($_GET ["path"]);
+		}
+		else {
+			$Fichier_a_telecharger = utf8_decode(str_replace("_",'\e',$_GET ["filename"]));
+			$cheminSplited = preg_split("/[S:]./",$_GET ["path"]);
+			//$chemin = "\\\\val-fs01\\Services".$cheminSplited[1];
+			$chemin = utf8_decode("\\\\val-fs01\\Services".$cheminSplited[count($cheminSplited)-1]);
+		}
 	} else {
 		return "ERROR";
 	}
-	
+
 	/*
 	 * Test de l'extension du nom de fichier transmit l'utiliser dans le header
 	 * qui permettra de telecharger sans corruption du fichier
 	 */
 	switch (strrchr ( basename ( $Fichier_a_telecharger ), "." )) {
 		case ".docx" :
-			$type = "application/docx";
+			$type = "application/msword";
 			break;
 		case ".doc" :
-			$type = "application/doc";
+			$type = "application/msword";
 			break;
 		case ".xlsx" :
-			$type = "application/xlsx";
+			$type = "application/vnd.ms-excel";
 			break;
 		case ".xls" :
-			$type = "application/xls";
+			$type = "application/vnd.ms-excel";
 			break;
 		case ".pdf" :
 			$type = "application/pdf";
 			break;
 	}
-	
 	/*
-	 * Différente information pour télécharger le fichier sans problème
+	 * Diffï¿½rente information pour tï¿½lï¿½charger le fichier sans problï¿½me
 	 */
-	header ( "Content-disposition: attachment; filename=$Fichier_a_telecharger" );
-	header ( "Content-Type: application/force-download" );
-	header ( "Content-Transfer-Encoding: $type\n" ); // Surtout ne pas enlever le \n
-	header ( "Content-Length: " . filesize ( $chemin . $Fichier_a_telecharger ) );
-	header ( "Pragma: no-cache" );
-	header ( "Cache-Control: must-revalidate, post-check=0, pre-check=0, public" );
-	header ( "Expires: 0" );
-	
-	readfile ( $chemin . $Fichier_a_telecharger );
+	header ( "Content-disposition: attachment; filename=\"$Fichier_a_telecharger\"");
+	header ( "Content-Type: $type; charset=utf-8" );
+
+	readfile ( $chemin.$Fichier_a_telecharger);
 ?>

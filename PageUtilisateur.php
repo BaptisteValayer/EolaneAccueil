@@ -30,12 +30,12 @@
 					<img src="img/logoEolane.png"></img>
 				</a>
 			</div>
-	        <?php
-				$date = date ( "d-m-Y" );
-				$heure = date ( "H:i" );
-				$numSemaine = date ( "W" );
-				echo "<table id='dateHeure' class='table-bordered'><tr><td>$heure</td><td>$date</td></tr><tr><td></td><td>semaine  $numSemaine</td></tr></table>";
-			?>
+	      <?php
+					$date = date ( "d-m-Y" );
+					$heure = date ( "H:i" );
+					$numSemaine = date ( "W" );
+					echo "<table id='dateHeure' class='table-bordered'><tr><td>$heure</td><td>$date</td></tr><tr><td></td><td>semaine  $numSemaine</td></tr></table>";
+				?>
       	</div>
 	</nav>
 
@@ -63,17 +63,17 @@
 				</figure>
 			</a>
 
-			<a href="file:///\\val-fs01\services\SANTE%20SECURITE%20ENVIRONNEMENT\BDN008%20Portail%20SSE.xls">
+			<a href='Classes\download.php?filename=BDN008 Portail SSE.xls&path=\\val-fs01\Services\SANTE SECURITE ENVIRONNEMENT\&unslipt=Y'>
 				<figure id="figureimg">
 					<img id="logo" src="img/logomedic.png"></img>
 					<figcaption>Santé&sécurité</figcaption>
 				</figure>
 			</a>
 
-			<a href="file:///\\val-fs01\services\QUALITE\1.%20REFERENTIEL\SMQ000_A%20-Référentiel%20Qualité%20Valence.xls">
+			<a href='Classes\download.php?filename=SMQ000_A -Référentiel Qualité Valence.xls&path=\\val-fs01\Services\QUALITE\1. REFERENTIEL\&unslipt=Y'>
 				<figure id="figureimg">
 					<img id="logo" src="img/logoqualite.png"></img>
-					<figcaption>Référenciel qualité</figcaption>
+					<figcaption>Référenciel qualit&eacute</figcaption>
 				</figure>
 			</a>
 
@@ -98,9 +98,6 @@
 		<input type="text" id="IPRZone" value=""></input>
 		<button type="button" class="btn btn-primary" onclick="findObject();">
 			<span class="glyphicon glyphicon-search"></span>
-		</button>
-		<button type="button" class="btn btn-warning" onclick="resetDatabase();">
-			<span class="glyphicon glyphicon-refresh"></span>
 		</button>
 	</div>
 

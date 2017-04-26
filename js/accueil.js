@@ -65,15 +65,6 @@ function findObject() {
 }
 
 /**
- * Appel de UpdateDataBase.php et ouvre un popUp quand elle s'est bien terminée
- */
-function resetDatabase() {
-	$.post("Classes\\UpdateDataBase.php").done(function(data) {
-		alert("La base de donnée à été mise à jour");
-	});
-}
-
-/**
  * Affiche ou cache le champ de recherche par IPR
  */
 function hideVisibleSearch() {

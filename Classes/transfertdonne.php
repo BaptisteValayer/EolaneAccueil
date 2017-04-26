@@ -55,7 +55,7 @@
 			if (! in_array ( $worksheet->getCell ( 'A' . $row )->getValue (), $known_IPR )) {
 				array_push ( $tabIPR, array (
 						"ipr" => $worksheet->getCell ( 'A' . $row )->getValue (),
-						"article" => $worksheet->getCell ( 'B' . $row )->getValue ()
+						"article" => str_replace("/","-",$worksheet->getCell ( 'B' . $row )->getValue ())
 				) );
 
 				array_push ( $known_IPR, $worksheet->getCell ( 'A' . $row )->getValue () );
@@ -64,7 +64,7 @@
 
 		return $tabIPR;
 	}
-		
+
 	/**
 	 * On recherche dans le dossier si un fichier avec le code article comme nom existe
 	 * @param string $codeArticle

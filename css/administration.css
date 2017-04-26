@@ -2,7 +2,10 @@
   width : 100%;
 }
 
-
 #datemsg {
   width : 90%;
+}
+
+#textMAJ {
+  text-indent: 40px;
 }

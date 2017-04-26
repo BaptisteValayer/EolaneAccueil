@@ -17,6 +17,7 @@
 <body>
 
   <div>
+			<h1> Infobox :</h1>
       <table id="InfoBox" class="table-striped table-condensed">
 				<thead>
 	        <tr>
@@ -41,6 +42,14 @@
 				</tfoot>
       </table>
   </div>
+	<div>
+		<h1> Base de donnée IPR :</h1>
+		<p id="textMAJ">Mettre à jour la Base de Données
+			<button type="button" class="btn btn-warning" onclick="resetDatabase();">
+				<span class="glyphicon glyphicon-refresh"></span>
+			</button>
+		</p>
+	</div>
 
 </body>
 </html>
