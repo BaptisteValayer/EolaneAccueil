@@ -11,6 +11,7 @@
     $mdp = $_GET ["mdp"];
 	} else {
 		echo "ERROR";
+		exit();
 	}
 
 	// Instanciation d'un objet MaBdDao
@@ -23,6 +24,6 @@
   else {
     session_start();
     $_SESSION['id'] = $res['id'];
-    header('Location:..\\PageAdministration.php');
+		echo "true";
   }
 ?>

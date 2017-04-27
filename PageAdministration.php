@@ -1,4 +1,14 @@
-<!DOCTYPE html>
+<?php
+session_start();
+if ( !isset($_SESSION['id'])){
+	include("connexion.php");
+	header('Location : connexion.php');
+	//'<scrip>console.log("oui");</scipt>';
+	exit();
+}
+
+ ?>
+ <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8" />
