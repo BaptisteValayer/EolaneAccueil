@@ -1,21 +1,21 @@
 <?php
-	
+
 	require_once "transfertdonne.php";
-	
+
 	/*
-	 * Test si les données trasmisent par l'url existe
+	 * Test si les donnï¿½es trasmisent par l'url existe
 	 */
 	if (isset ( $_GET ['codeArticle'] )) {
 		$codeArticle = $_GET ['codeArticle'];
 	} else {
 		return "ERROR";
 	}
-	
+
 	//Premier dossier dans lequel on recherche la fiche produit
-	$directoryIprValide = '\\\\val-fs01\\Services\Methodes Production\0- IPR VALIDE';
-	//Deuxième dossier dans lequel on recherche la fiche produit
-	$directoryIprAutorisee = '\\\\val-fs01\\Services\Methodes Production\1- IPR AUTORISEES';
-	
+	$directoryIprValide = '\\\\val-fs01\\Services\\Methodes Production\\0- IPR VALIDE';
+	//Deuxiï¿½me dossier dans lequel on recherche la fiche produit
+	$directoryIprAutorisee = '\\\\val-fs01\\Services\\Methodes Production\\1- IPR AUTORISEES';
+
 	/*
 	 * Test de l'existence d'un fichier avec $codeArticle dans son nom dans le dossier $directoryIprValide
 	 */
@@ -28,7 +28,7 @@
 	*/
 	else if ( ($file= IsExisting ( $codeArticle, $directoryIprAutorisee )) !== 0) {
 			echo "file:\\\\\\S:\\Methodes Production\\1- IPR AUTORISEES\\".$file;
-		
+
 	}
 	else {
 		echo $file;
