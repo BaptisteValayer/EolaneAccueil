@@ -13,7 +13,7 @@
 	$maBD->dropALL();
 	// Recherche du dernier fichier excel en date et insertion dans la base de donn�e
 	$tabForDb = [];
-	$tabForDb = recupererLigneExcel ( recupererDernierFichier ( "\\\\val-fs01\\EOLE-SAP\\CHARGE_SAP\\Extraction_OF" ) );
+	$tabForDb = recupererLigneExcel ( recupererDernierFichier ( $_COOKIE['ExtractionOF'] ) );
 	foreach ( $tabForDb as $key => $value ) {
 		$res = $maBD->insert($value);
 	}

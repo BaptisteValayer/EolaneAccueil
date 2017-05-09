@@ -18,6 +18,7 @@
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/accueil.js"></script>
 	<script src="js/timer.js"></script>
+	<script src="js/init.js"></script>
 </head>
 
 <body>

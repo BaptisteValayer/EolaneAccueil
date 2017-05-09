@@ -3,10 +3,8 @@ session_start();
 if ( !isset($_SESSION['id'])){
 	include("connexion.php");
 	header('Location : connexion.php');
-	//'<scrip>console.log("oui");</scipt>';
 	exit();
 }
-
  ?>
  <!DOCTYPE html>
 <html>
@@ -21,6 +19,7 @@ if ( !isset($_SESSION['id'])){
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/infobox.js"></script>
 	<script src="js/timer.js"></script>
+	<script src="js/init.js"></script>
 	<script src="js/adminAccueil.js"></script>
 </head>
 

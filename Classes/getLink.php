@@ -12,9 +12,9 @@
 	}
 
 	//Premier dossier dans lequel on recherche la fiche produit
-	$directoryIprValide = '\\\\val-fs01\\Services\\Methodes Production\\0- IPR VALIDE';
+	$directoryIprValide = $_COOKIE['IprValide'];
 	//Deuxi�me dossier dans lequel on recherche la fiche produit
-	$directoryIprAutorisee = '\\\\val-fs01\\Services\\Methodes Production\\1- IPR AUTORISEES';
+	$directoryIprAutorisee = $_COOKIE['IprAutorise'];
 
 	/*
 	 * Test de l'existence d'un fichier avec $codeArticle dans son nom dans le dossier $directoryIprValide
