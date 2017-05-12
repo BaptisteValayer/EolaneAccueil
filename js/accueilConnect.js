@@ -10,8 +10,7 @@ function testConnection() {
       alert("Nom de compte ou mot de passe incorrect");
     }
     else {
-      console.log(data);
-      //location.href="PageAdministration.php";
+      location.href="PageAdministration.php";
     }
   });
 }

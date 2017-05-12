@@ -90,7 +90,7 @@
 					<img id="logo" src="img/logohello.png"></img>
 					<figcaption>Portail Éolane</figcaption>
 				</figure>
-			</a>
+			</a>				
 		</div>
 	</div>
 
