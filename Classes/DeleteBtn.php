@@ -5,7 +5,13 @@
 
   $maBD = new bdBtnDAO( MaBD::getInstance () );
 
-  $res = $maBD->getAllBtn();
+  if (isset ( $_GET ["id"] )) {
+		$ID = $_GET ["id"];
+	} else {
+		echo "ERROR";
+	}
+
+  $res = $maBD->dropBtn($ID);
 
   return $res
 

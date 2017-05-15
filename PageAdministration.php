@@ -18,6 +18,7 @@ if ( !isset($_SESSION['id'])){
 	<script src="js/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/infobox.js"></script>
+	<script src="js/boutons.js"></script>
 	<script src="js/timer.js"></script>
 	<script src="js/init.js"></script>
 	<script src="js/adminAccueil.js"></script>
@@ -37,9 +38,9 @@ if ( !isset($_SESSION['id'])){
 	     </div>
 	     <div id="navbar" class="collapse navbar-collapse">
 	     	<ul class="nav navbar-nav">
-	      	<li class="active"><a href="#">Infobox</a></li>
-	        <li><a href="#about">Base De Donnee IPR</a></li>
-	        <li><a href="#contact">Interface Utilisateur</a></li>
+	      	<li><a href="#InfoBoxDiv">Infobox</a></li>
+	        <li><a href="#IprBaseAction">Base De Donnee IPR</a></li>
+	        <li><a href="#ModifierPageUtilisateur">Interface Utilisateur</a></li>
 	      </ul>
 	     </div><!--/.nav-collapse -->
 		 </div>
@@ -47,7 +48,7 @@ if ( !isset($_SESSION['id'])){
 	<div class="container">
 		<div class="starter-template">
 
-		  <div id="InfoBoxDiv">
+		  <div class="main" id="InfoBoxDiv">
 					<h1> Infobox :</h1>
 		      <table id="InfoBox" class="table-striped table-condensed">
 						<thead>
@@ -72,18 +73,24 @@ if ( !isset($_SESSION['id'])){
 								</tr>
 						</tfoot>
 		      </table>
+					<br>
+					<p id="textMAJ">Suppimer les messages trop ancien :
+						<button type="button" class="btn btn-warning" onclick="resetAchivedMessage();">
+							<span class="glyphicon glyphicon-refresh"></span>
+						</button>
+					</p>
 		  </div>
 
-			<div id="IprBaseAction">
+			<div class="main" id="IprBaseAction">
 				<h1> Base de donnée IPR :</h1>
-				<p id="textMAJ">Mettre à jour la Base de Données
+				<p id="textMAJ">Mettre à jour la Base de Données :
 					<button type="button" class="btn btn-warning" onclick="resetDatabase();">
 						<span class="glyphicon glyphicon-refresh"></span>
 					</button>
 				</p>
 			</div>
 
-			<div id="ModifierPageUtilisateur">
+			<div class="main" id="ModifierPageUtilisateur">
 				<h1>Liste Boutons de la page utilisateurs:</h1>
 				<table id="ListBtn" class="table-striped table-condensed">
 					<thead>
@@ -91,6 +98,7 @@ if ( !isset($_SESSION['id'])){
 							<th></th>
 							<th>Legende du bouton</th>
 							<th>Image du bouton</th>
+							<th>url</th>
 							<th></th>
 						</tr>
 					</thead>
@@ -103,7 +111,8 @@ if ( !isset($_SESSION['id'])){
 									<td>
 										<input id="ImgBtn" type="file" name="image" accept="image/*">
 									</td>
-									<td><span class="glyphicon glyphicon-plus" onclick="addNewMessage();"></span></td>
+									<td><input type="text" id="url" placeholder="url de renvoie"></input></td>
+									<td><span class="glyphicon glyphicon-plus" onclick="addNewBtn();"></span></td>
 							</tr>
 					</tfoot>
 				</table>

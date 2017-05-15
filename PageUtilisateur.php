@@ -19,6 +19,8 @@
 	<script src="js/accueil.js"></script>
 	<script src="js/timer.js"></script>
 	<script src="js/init.js"></script>
+	<script src="js/boutons.js"></script>
+	<script src="js/infobox.js"></script>
 </head>
 
 <body>
@@ -50,7 +52,7 @@
 				</figure>
 			</a>
 
-			<a href="http://10.100.13.22/auth">
+			<!--<a href="http://10.100.13.22/auth">
 				<figure id="figureimg">
 					<img id="logo" src="img/logosap.png"></img>
 					<figcaption>Opérateur SAP</figcaption>
@@ -90,7 +92,7 @@
 					<img id="logo" src="img/logohello.png"></img>
 					<figcaption>Portail Éolane</figcaption>
 				</figure>
-			</a>				
+			</a>-->
 		</div>
 	</div>
 

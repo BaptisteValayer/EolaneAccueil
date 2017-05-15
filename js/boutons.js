@@ -1,50 +1,53 @@
-function InfoBox() {
+function Bouton() {
   this.boutons = [];
   var self = this;
 
-  this.init = function() {
+  this.init = function(user) {
     $.getJSON("Classes\\UpdateBtnTab.php",function(data){
-      self.messages = data;
-      self.showAdmin();
+      self.boutons = data;
+      if(user == "admin" ) { self.showAdmin(); }
+      else { self.showUsers(); }
     });
   }
 
   this.showAdmin = function() {
-    infoBoxBody = $("#listBtnBody");
-    infoBoxBody.empty();
-      for (message of this.messages) {
+    BtnListBody = $("#listBtnBody");
+    BtnListBody.empty();
+      for (btn of this.boutons) {
       tr=$('<tr>');
-      $('<td>').text(message['id'])
+      $('<td>').text(btn['id'])
                .css('visibility', "hidden")
                .appendTo(tr);
-      $('<td>').text(message['legende'])
+      $('<td>').text(btn['legende'])
                .appendTo(tr);
-      $('<td>').text(message['nomfichier'])
+      $('<td>').text(btn['nomfichier'])
+               .appendTo(tr);
+      $('<td>').text(btn['url'])
                .appendTo(tr);
       $('<td>').append($('<span>').addClass("glyphicon glyphicon-trash")
                                   .click(function(){self.delete($(this).parent().parent())})
                 )
                .appendTo(tr);
-      tr.appendTo(infoBoxBody);
+      tr.appendTo(BtnListBody);
     }
   }
 
   this.showUsers = function() {
-    for (message of this.messages) {
-      a = $('<a>').attr("href",data[i]['url']);
-      figcaption = $('<figcaption>').text(data[i]['legende']);
-      img = $('<img>').attr("src","img/"+data[i]['nomfichier']).attr("id","logo");
+    for (btn of this.boutons) {
+      a = $('<a>').attr("href",btn['url']);
+      figcaption = $('<figcaption>').text(btn['legende']);
+      img = $('<img>').attr("src","img/"+btn['nomfichier']).attr("id","logo");
       $("<figure>").attr("id","figureimg").append(img).append(figcaption).appendTo(a);
-      a.appendTo("#containere");
+      a.appendTo(".starter-template");
     }
   }
 
   this.delete = function(item) {
     idrow = item.children().first().text();
-    $.post("Classes\\deleteRow.php?id="+idrow, {id : "idrow"}).done(function(data) {
+    $.post("Classes\\DeleteBtn.php?id="+idrow).done(function(data) {
   		alert("information supprimé");
       $("#TrinfoBoxDom").empty();
-      self.init();
+      self.init("admin");
   	});
   }
 }

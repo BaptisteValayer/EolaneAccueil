@@ -81,4 +81,6 @@ function hideVisibleSearch() {
 		time.init();
 		time.affiche();
 		setInterval(function() {time.affiche();},60000);
+		var btnS = new Bouton();
+		btnS.init();
 	});
