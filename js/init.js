@@ -5,7 +5,9 @@ function setCookie(sName, sValue) {
 }
 
 $.getJSON("init\\init.php",function(data){
-  setCookie("ExtractionOF",data[0]['path']);
-  setCookie("IprValide",data[1]['path']);
-  setCookie("IprAutorise",data[2]['path']);
+  for (path of data){
+    if(path['nom']!=null) {
+      setCookie(path['nom'],path['path'])
+    }
+  }
 })

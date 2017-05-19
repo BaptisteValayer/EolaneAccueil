@@ -50,7 +50,7 @@ if ( !isset($_SESSION['id'])){
 
 		  <div class="main" id="InfoBoxDiv">
 					<h1> Infobox :</h1>
-		      <table id="InfoBox" class="table-striped table-condensed">
+		      <table id="InfoBox" class="table-striped table-condensed table-hover">
 						<thead>
 			        <tr>
 			          <th></th>
@@ -69,7 +69,7 @@ if ( !isset($_SESSION['id'])){
 											<input type="text" id="datemsg" placeholder="Date de Fin // si aucune : cocher->"></input>
 											<input type="checkbox" id="ulimitedDate"></input>
 										</td>
-										<td><span class="glyphicon glyphicon-plus" onclick="addNewMessage();"></span></td>
+										<td><span class="glyphicon glyphicon-plus" aria-hidden="true" onclick="addNewMessage();"></span></td>
 								</tr>
 						</tfoot>
 		      </table>
