@@ -17,34 +17,15 @@
 	$exist=false;
 
 	for ($i=0; $i < count($Paths); $i++) {
-		if ($file = IsExisting ( $codeArticle, $Paths[$i]['path']) !== 0){
-			echo "oui";
-		}
-		else {
-			echo "non";
+		if(($file = IsExisting ( $codeArticle, $Paths[$i]['path'] )) !==0 ){
+			array_push($result, $Paths[$i]['path']."\\".$file);
+			$exist=true;
 		}
 	}
-
-	/*foreach ($path as $key => $value) {
-		if ( ($file = IsExisting ( $codeArticle, $path )) !== 0) {
-			array_push($tab,"file:\\\\\\S:\\Methodes Production\\0- IPR VALIDE\\".$file);
-		}
-	}
-	/*
-	 * Test de l'existence d'un fichier avec $codeArticle dans son nom dans le dossier $directoryIprValide
-	 */
-	//$file = IsExisting ( $codeArticle, $directoryIprValide );
-	/*if ( ($file = IsExisting ( $codeArticle, $directoryIprValide )) !== 0) {
-		echo "file:\\\\\\S:\\Methodes Production\\0- IPR VALIDE\\".$file;
-	}
-	/*
-	* Test de l'existence d'un fichier avec $codeArticle dans son nom dans le dossier $directoryIprAutorisee
-	*/
-	/*else if ( ($file= IsExisting ( $codeArticle, $directoryIprAutorisee )) !== 0) {
-			echo "file:\\\\\\S:\\Methodes Production\\1- IPR AUTORISEES\\".$file;
-
+	if($exist == true) {
+		echo json_encode($result);
 	}
 	else {
-		echo $file;
-	}*/
+		return false;
+	}
 ?>

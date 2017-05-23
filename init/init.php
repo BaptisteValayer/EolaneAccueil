@@ -16,6 +16,6 @@ function getALLPath() {
       ));
     }
   }
-  echo json_encode($tabPATH);
+  return $tabPATH;
 }
 ?>

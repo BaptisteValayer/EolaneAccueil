@@ -14,51 +14,52 @@ function findObject() {
 		}
 		code = data["article"];
 		// Récupère le le lien permettant d'accéder à la fiche produit
-		$.get("Classes\\getLink.php", {codeArticle : code}, function(data) {
-			console.log(data);
+		$.getJSON("Classes\\getLink.php", {codeArticle : code}, function(data) {
 			if (data == false || data == "ERROR") {
 				alert("La fiche du produit est introuvable");
 				return 0;
 			}
 
-			// Récupération de l'extension du fichier
-			splitedExtension = data.split(".");
-			fileformat = splitedExtension[splitedExtension.length - 1];
+			for (foundedFile of data) {
+				// Récupération de l'extension du fichier
+				splitedExtension = foundedFile.split(".");
+				fileformat = splitedExtension[splitedExtension.length - 1];
 
-			// Récupération du chemin et du nom du fichier
-			splitedFileName = data.split("\\");
-			filename = splitedFileName[splitedFileName.length - 1];
-			filepath = data.split(filename)[0];
+				// Récupération du chemin et du nom du fichier
+				splitedFileName = foundedFile.split("\\");
+				filename = splitedFileName[splitedFileName.length - 1];
+				filepath = foundedFile.split(filename)[0];
 
-			// Création d'un élément <a> qui permettra de télécharger la fiche produit
-			a = $("<a>").attr("href","Classes\\download.php?filename=" + filename + "&path=" + filepath)
-						.attr("download", "fichier");
+				// Création d'un élément <a> qui permettra de télécharger la fiche produit
+				a = $("<a>").attr("href","Classes\\download.php?filename=" + filename + "&path=" + filepath)
+							.attr("download", "fichier");
 
-			// Création d'un élément <i> contenu dans le <a> qui a une apparence différente suivant l'extension de la fiche produit
-			switch (fileformat) {
-			case "xlsx":
-			case "xls":
-				$("<i>").addClass("fa fa-file-excel-o fa-5x")
-						.attr("aria-hidden", "true")
-						.css("color", "#0d6a0e")
-						.appendTo(a);
-				a.appendTo($("#SearchResult"));
-				break;
-			case "docx":
-			case "doc":
-				$("<i>").addClass("fa fa-file-word-o fa-5x")
-						.attr("aria-hidden", "true")
-						.css("color", "#1d318d")
-						.appendTo(a);
-				a.appendTo($("#SearchResult"));
-				break;
-			case "pdf":
-				$("<i>").addClass("fa fa-file-pdf-o fa-5x")
-						.attr("aria-hidden","true")
-						.css("color", "#ff421a")
-						.appendTo(a);
-				a.appendTo($("#SearchResult"));
-				break;
+				// Création d'un élément <i> contenu dans le <a> qui a une apparence différente suivant l'extension de la fiche produit
+				switch (fileformat) {
+				case "xlsx":
+				case "xls":
+					$("<i>").addClass("fa fa-file-excel-o fa-5x")
+							.attr("aria-hidden", "true")
+							.css("color", "#0d6a0e")
+							.appendTo(a);
+					a.appendTo($("#SearchResult"));
+					break;
+				case "docx":
+				case "doc":
+					$("<i>").addClass("fa fa-file-word-o fa-5x")
+							.attr("aria-hidden", "true")
+							.css("color", "#1d318d")
+							.appendTo(a);
+					a.appendTo($("#SearchResult"));
+					break;
+				case "pdf":
+					$("<i>").addClass("fa fa-file-pdf-o fa-5x")
+							.attr("aria-hidden","true")
+							.css("color", "#ff421a")
+							.appendTo(a);
+					a.appendTo($("#SearchResult"));
+					break;
+				}
 			}
 		});//fin getLink.php
   });//fin getOne.php
