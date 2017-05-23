@@ -20,7 +20,6 @@ if ( !isset($_SESSION['id'])){
 	<script src="js/infobox.js"></script>
 	<script src="js/boutons.js"></script>
 	<script src="js/timer.js"></script>
-	<script src="js/init.js"></script>
 	<script src="js/adminAccueil.js"></script>
 </head>
 

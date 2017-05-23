@@ -32,7 +32,9 @@ function findObject() {
 
 				// Création d'un élément <a> qui permettra de télécharger la fiche produit
 				a = $("<a>").attr("href","Classes\\download.php?filename=" + filename + "&path=" + filepath)
-							.attr("download", "fichier");
+										.attr("download", "fichier");
+				p = $("<p>").text(filename)
+										.css("font-size","18px");
 
 				// Création d'un élément <i> contenu dans le <a> qui a une apparence différente suivant l'extension de la fiche produit
 				switch (fileformat) {
@@ -41,24 +43,31 @@ function findObject() {
 					$("<i>").addClass("fa fa-file-excel-o fa-5x")
 							.attr("aria-hidden", "true")
 							.css("color", "#0d6a0e")
+							.append(p)
 							.appendTo(a);
-					a.appendTo($("#SearchResult"));
+					$("#SearchResult").append(a)
+														.append("<br>");
 					break;
 				case "docx":
 				case "doc":
 					$("<i>").addClass("fa fa-file-word-o fa-5x")
 							.attr("aria-hidden", "true")
 							.css("color", "#1d318d")
+							.append(p)
+							.append("<br>")
 							.appendTo(a);
-					a.appendTo($("#SearchResult"));
+					$("#SearchResult").append(a)
+														.append("<br>");
 					break;
 				case "pdf":
 					$("<i>").addClass("fa fa-file-pdf-o fa-5x")
 							.attr("aria-hidden","true")
 							.css("color", "#ff421a")
+							.append(p)
+							.append("<br>")
 							.appendTo(a);
-					a.appendTo($("#SearchResult"));
-					break;
+					$("#SearchResult").append(a)
+														.append("<br>");
 				}
 			}
 		});//fin getLink.php

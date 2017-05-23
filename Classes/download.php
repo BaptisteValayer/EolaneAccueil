@@ -3,16 +3,8 @@
 	 * On test si les donn�es trasmisent par l'url existe
 	 */
 	if (isset ( $_GET ["filename"] ) && isset ( $_GET ["path"] )) {
-		if(isset ($_GET["unslipt"])){
 			$Fichier_a_telecharger = utf8_decode($_GET ["filename"]);
 			$chemin = utf8_decode($_GET ["path"]);
-		}
-		else {
-			$Fichier_a_telecharger = utf8_decode(str_replace("_",'\e',$_GET ["filename"]));
-			$cheminSplited = preg_split("/[S:]./",$_GET ["path"]);
-			//$chemin = "\\\\val-fs01\\Services".$cheminSplited[1];
-			$chemin = utf8_decode("\\\\val-fs01\\Services".$cheminSplited[count($cheminSplited)-1]);
-		}
 	} else {
 		return "ERROR";
 	}
