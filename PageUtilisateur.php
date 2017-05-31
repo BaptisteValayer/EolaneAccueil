@@ -62,5 +62,6 @@
 	</div>
 
 	<div id="SearchResult"></div>
+	<button onclick="test()">BTN</button>
 </body>
 </html>

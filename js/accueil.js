@@ -33,7 +33,7 @@ function findObject() {
 				// Création d'un élément <a> qui permettra de télécharger la fiche produit
 				a = $("<a>").attr("href","Classes\\download.php?filename=" + filename + "&path=" + filepath)
 										.attr("download", "fichier");
-				p = $("<p>").text(filename)
+				p = $("<p>").text(splitedFileName[splitedFileName.length - 2]+"\\"+filename)
 										.css("font-size","18px");
 
 				// Création d'un élément <i> contenu dans le <a> qui a une apparence différente suivant l'extension de la fiche produit
@@ -84,6 +84,10 @@ function hideVisibleSearch() {
 	} else {
 		form.css("visibility", "hidden");
 	}
+}
+
+function test() {
+	location.href="file:///S:/Methodes Production/0- IPR VALIDE/B03-0090A.xls";
 }
 
 	$(document).ready(function() {
