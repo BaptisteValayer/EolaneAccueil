@@ -9,7 +9,7 @@
 		$handle = opendir ( $path );
 		while ( $file = readdir ( $handle ) ) {
 			if ($file != '..' && $file != '.' && $file != '') {
-				$pathfile = $path . "\\" . $file;
+				$pathfile = $path . "/" . $file;
 				if (true == ($res = is_file ( $pathfile ))) {
 					$date = date ( "Y/m/d", filemtime ( $pathfile ) ); // R�cup�re depuis combien de tempas le fichier existe
 					array_push ( $tab, array (

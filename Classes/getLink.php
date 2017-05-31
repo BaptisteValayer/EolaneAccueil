@@ -1,24 +1,23 @@
 <?php
 
 	require_once "transfertdonne.php";
-	require_once "..\\init\\init.php";
+	require_once "../init/init.php";
 
 	/*
 	 * Test si les donn�es trasmisent par l'url existe
 	 */
-	/*if (isset ( $_GET ['codeArticle'] )) {
+	if (isset ( $_GET ['codeArticle'] )) {
 		$codeArticle = $_GET ['codeArticle'];
 	} else {
 		return "ERROR";
-	}*/
-	$codeArticle="B03-0090A";
+	}
 	$result=array();
 	$Paths=getALLPath();
 	$exist=false;
 
 	for ($i=0; $i < count($Paths); $i++) {
 		if(($file = IsExisting ( $codeArticle, $Paths[$i]['path'] )) !==0 ){
-			array_push($result, $Paths[$i]['path']."\\".$file);
+			array_push($result, $Paths[$i]['path']."/".$file);
 			$exist=true;
 		}
 	}

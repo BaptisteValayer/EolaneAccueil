@@ -4,7 +4,7 @@
 	require_once "DAO.php";
 	require_once "MaBD.php";
 	require_once "MaBdDao.php";
-	require_once "..\\init\\init.php";
+	require_once "../init/init.php";
 
 
 	// Instanciation d'un objet xlsfileDAO
