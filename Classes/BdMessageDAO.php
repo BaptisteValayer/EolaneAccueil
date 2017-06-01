@@ -4,7 +4,7 @@ class bdMessageDAO extends DAO {
   protected $table = "message";
 
   public function getAllMessage() {
-    $stmt = $this->pdo->prepare("SELECT * FROM $this->table ORDER BY DateFin");
+    $stmt = $this->pdo->prepare("SELECT * FROM $this->table ORDER BY dateFin");
     $stmt->execute();
     $res = array();
     foreach ($stmt->fetchAll(PDO::FETCH_ASSOC) as $row){
@@ -14,7 +14,7 @@ class bdMessageDAO extends DAO {
   }
 
   public function dropDate() {
-    $stmt = $this->pdo->prepare ( "DELETE FROM $this->table WHERE datefin!='9999-12-31' && DATE_ADD(dateFin, INTERVAL 1 DAY)<now()" );
+    $stmt = $this->pdo->prepare ( "DELETE FROM $this->table WHERE dateFin!='9999-12-31' && DATE_ADD(dateFin, INTERVAL 1 DAY)<now()" );
     $res = $stmt->execute ();
     return $res;
   }
