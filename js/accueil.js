@@ -7,19 +7,19 @@ function findObject() {
 	$("i").parent().remove();
 
 	// Récupération de l'élément dans la BD grâce à son code IPR
-	$.getJSON("Classes\\getOne.php", {ipr : iprCode},function(data) {
+	$.getJSON("Classes/getOne.php", {ipr : iprCode},function(data) {
 		if (data == false || data == "ERROR") {
 			alert("le code IPR n'existe pas");
 			return 0;
 		}
 		code = data["article"];
 		// Récupère le le lien permettant d'accéder à la fiche produit
-		$.getJSON("Classes\\getLink.php", {codeArticle : code}, function(data) {
+		$.getJSON("Classes/getLink.php", {codeArticle : code}, function(data) {
 			if (data == false || data == "ERROR") {
 				alert("La fiche du produit est introuvable");
 				return 0;
 			}
-
+console.log("a");
 			for (foundedFile of data) {
 				// Récupération de l'extension du fichier
 				splitedExtension = foundedFile.split(".");

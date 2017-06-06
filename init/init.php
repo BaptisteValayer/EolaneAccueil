@@ -1,10 +1,10 @@
 <?php
-require_once "..\\Classes\\PHPExcel.php";
+require_once "../Classes/PHPExcel.php";
 
 function getALLPath() {
   $tabPATH = [];
-  $excelReader = PHPExcel_IOFactory::createReaderForFile ( "..\\init\\CheminsDossier.xlsx" );
-  $excelObj = $excelReader->load ( "..\\init\\CheminsDossier.xlsx" );
+  $excelReader = PHPExcel_IOFactory::createReaderForFile ( "../init/CheminsDossier.xlsx" );
+  $excelObj = $excelReader->load ( "../init/CheminsDossier.xlsx" );
   $worksheet = $excelObj->getSheet ( 0 );
   $lastRow = $worksheet->getHighestRow ();
 
@@ -22,8 +22,8 @@ function getALLPath() {
 
 function getExtractionPath() {
   $ExtractionPath = '';
-  $excelReader = PHPExcel_IOFactory::createReaderForFile ( "..\\init\\CheminsDossier.xlsx" );
-  $excelObj = $excelReader->load ( "..\\init\\CheminsDossier.xlsx" );
+  $excelReader = PHPExcel_IOFactory::createReaderForFile ( "../init/CheminsDossier.xlsx" );
+  $excelObj = $excelReader->load ( "../init/CheminsDossier.xlsx" );
   $worksheet = $excelObj->getSheet ( 0 );
   $lastRow = $worksheet->getHighestRow ();
 

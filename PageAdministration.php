@@ -1,8 +1,7 @@
 <?php
 session_start();
 if ( !isset($_SESSION['id'])){
-	include("connexion.php");
-	header('Location : connexion.php');
+	header('Location: connexion.php');
 	exit();
 }
  ?>

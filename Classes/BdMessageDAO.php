@@ -4,7 +4,7 @@ class bdMessageDAO extends DAO {
   protected $table = "message";
 
   public function getAllMessage() {
-    $stmt = $this->pdo->prepare("SELECT * FROM $this->table ORDER BY dateFin");
+    $stmt = $this->pdo->prepare("SELECT * FROM $this->table");
     $stmt->execute();
     $res = array();
     foreach ($stmt->fetchAll(PDO::FETCH_ASSOC) as $row){
