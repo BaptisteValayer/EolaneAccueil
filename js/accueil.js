@@ -19,14 +19,14 @@ function findObject() {
 				alert("La fiche du produit est introuvable");
 				return 0;
 			}
-console.log("a");
+
 			for (foundedFile of data) {
 				// Récupération de l'extension du fichier
 				splitedExtension = foundedFile.split(".");
 				fileformat = splitedExtension[splitedExtension.length - 1];
 
 				// Récupération du chemin et du nom du fichier
-				splitedFileName = foundedFile.split("\\");
+				splitedFileName = foundedFile.split("/");
 				filename = splitedFileName[splitedFileName.length - 1];
 				filepath = foundedFile.split(filename)[0];
 
@@ -84,10 +84,6 @@ function hideVisibleSearch() {
 	} else {
 		form.css("visibility", "hidden");
 	}
-}
-
-function test() {
-	location.href="file:///S:/Methodes Production/0- IPR VALIDE/B03-0090A.xls";
 }
 
 	$(document).ready(function() {

@@ -35,7 +35,7 @@
 	 */
 	header ( "Content-disposition: attachment; filename=\"$Fichier_a_telecharger\"");
 	header ( "Content-Type: $type; charset=utf-8" );
-	readfile ( $chemin.$Fichier_a_telecharger);*/
+	readfile ($chemin.$Fichier_a_telecharger);
 	/*$commande = "..\\scipt\\exec.bat";
 	system ( $commande );
 	 autre méthode essayé

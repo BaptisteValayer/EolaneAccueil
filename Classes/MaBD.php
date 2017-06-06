@@ -11,7 +11,7 @@ class MaBD {
    static function getInstance() {
       if (self::$pdo == null) {
          $dsn = "mysql:host=localhost;dbname=iprdb;charset=utf8";
-         self::$pdo = new PDO($dsn, "root", "");
+         self::$pdo = new PDO($dsn, "root", "root");
          self::$pdo->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
       }
       return self::$pdo;
