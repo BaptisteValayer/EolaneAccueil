@@ -14,7 +14,7 @@
 	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
 	<link href="css/font-awesome.css" rel="stylesheet" type="text/css">
 	<link href="css/accueil.css" rel="stylesheet" type="text/css">
-	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery-3.2.1.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/accueil.js"></script>
 	<script src="js/timer.js"></script>

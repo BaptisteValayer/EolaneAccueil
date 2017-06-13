@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8" />
 	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
-	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery-3.2.1.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/accueilConnect.js"></script>
 </head>

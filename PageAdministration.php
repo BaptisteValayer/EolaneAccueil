@@ -13,7 +13,7 @@ if ( !isset($_SESSION['id'])){
 	<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
 	<link href="css/administration.css" rel="stylesheet" >
 	<link href="js/jquery-ui-1.12.1.custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
-	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery-3.2.1.js"></script>
 	<script src="js/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/infobox.js"></script>
