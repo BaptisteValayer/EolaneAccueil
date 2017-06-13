@@ -16,8 +16,8 @@
 	$exist=false;
 
 	for ($i=0; $i < count($Paths); $i++) {
-		if(($file = IsExisting ( $codeArticle, $Paths[$i]['path'] )) !==0 ){
-			array_push($result, $Paths[$i]['path']."/".$file);
+		if(($file = IsExisting( $codeArticle,$Paths[$i]['path'] )) !==0 ){
+			array_push($result, $Paths[$i]['path']."/".$file );
 			$exist=true;
 		}
 	}

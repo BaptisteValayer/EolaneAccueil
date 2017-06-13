@@ -77,7 +77,7 @@
 			/*compare le nom d'un fichier compris dans le dossier � l'adresse $dossierPath avec une chaine de caract�re
 			* qui commence par le $codeArticle (^)
 			*/
-			if (preg_match ( '#^' . $codeArticle . '#', $value )) {
+			if (preg_match ( '#^' . $codeArticle . '#i', $value )) {
 				return $value;
 			}
 		}

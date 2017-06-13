@@ -28,8 +28,7 @@ function findObject() {
 				// Récupération du chemin et du nom du fichier
 				splitedFileName = foundedFile.split("/");
 				filename = splitedFileName[splitedFileName.length - 1];
-				filepath = foundedFile.split(filename)[0];
-
+				filepath = MakeWindowsLink(foundedFile.split(filename)[0]);
 				// Création d'un élément <a> qui permettra de télécharger la fiche produit
 				a = $("<a>").attr("href","Classes\\download.php?filename=" + filename + "&path=" + filepath)
 										.attr("download", "fichier");
@@ -86,11 +85,17 @@ function hideVisibleSearch() {
 	}
 }
 
-	$(document).ready(function() {
-		var time = new timer();
-		time.init();
-		time.affiche();
-		setInterval(function() {time.affiche();},60000);
-		var btnS = new Bouton();
-		btnS.init();
-	});
+function MakeWindowsLink(LinuxPath) {
+	var res = LinuxPath.replace("/media/", "\\\\");
+	while(res.search("/")!=-1){var res = res.replace("/", "\\")};
+	return res;
+}
+
+$(document).ready(function() {
+	var time = new timer();
+	time.init();
+	time.affiche();
+	setInterval(function() {time.affiche();},60000);
+	var btnS = new Bouton();
+	btnS.init();
+});
