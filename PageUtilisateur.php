@@ -11,9 +11,12 @@
 <html>
 <head>
 	<meta charset="UTF-8" />
+	<meta http-equiv="x-ua-compatible" content="IE=5">
 	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
 	<link href="css/font-awesome.css" rel="stylesheet" type="text/css">
 	<link href="css/accueil.css" rel="stylesheet" type="text/css">
+	<title>Portail Operateur</title>
+	<link rel="shortcut icon" href="img/eolane.ico">
 	<script src="js/jquery-3.2.1.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/accueil.js"></script>
@@ -55,7 +58,7 @@
 
 	<div id="form">
 
-		<input type="text" id="IPRZone" value=""></input>
+		<input type="text" id="IPRZone" onKeyPress="if(event.keyCode == 13) findObject();" value=""></input>
 		<button type="button" class="btn btn-primary" onclick="findObject();">
 			<span class="glyphicon glyphicon-search"></span>
 		</button>

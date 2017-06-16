@@ -3,7 +3,7 @@ function InfoBox() {
   var self = this;
 
   this.init = function() {
-    $.getJSON("Classes\\UpdateMessagetab.php",function(data){
+    $.getJSON("Classes/UpdateMessagetab.php",function(data){
       self.messages = data;
       self.showAdmin();
     });
@@ -58,7 +58,7 @@ function InfoBox() {
 
   this.delete = function(item) {
     idrow = item.children().first().text();
-    $.post("Classes\\deleteRow.php?id="+idrow, {id : "idrow"}).done(function(data) {
+    $.post("Classes/deleteRow.php?id="+idrow, {id : "idrow"}).done(function(data) {
   		alert("information supprimé");
       $("#TrinfoBoxDom").empty();
       self.init();

@@ -28,33 +28,44 @@ $(document).ready(function() {
 function addNewMessage() {
   text = $("#textemsg").val();
   date = $("#datemsg").val();
-  $.post("Classes\\addRow.php?message="+text+"&dateFin="+date).done(function(data) {
+if(text == "" || date == ""){alert("Il manque des informations");}
+else{
+  $.post("Classes/addRow.php?message="+text+"&dateFin="+date).done(function(data) {
     alert("information ajoutée");
     initInfoBoxTab();
   });
 }
+}
 
 function addNewBtn() {
   Legende = $("#legendeBtn").val();
-  nomImg = $("#ImgBtn").val().split("C:\\fakepath\\")[1];
+  nomImg = $("#ImgBtn").val();
   url = $("#url").val();
-  $.post("Classes\\addBtn.php?legende="+Legende+"&nomfichier="+nomImg+"&url="+url).done(function(data) {
+	x=nomImg.indexOf("fakepath");
+	if(x>=0){
+		console.log("in");
+		nomImg=nomImg.split("C:\\fakepath\\")[1];
+	}
+if(Legende == "" || nomImg == "" || url == ""){alert("Il manque des informations");}
+else{
+  $.post("Classes/addBtn.php?legende="+Legende+"&nomfichier="+nomImg+"&url="+url).done(function(data) {
     alert("Bouton ajouté");
     initBtnTab();
   });
+}
 }
 
 /**
  * Appel de UpdateDataBase.php et ouvre un popUp quand elle s'est bien terminée
  */
 function resetDatabase() {
-	$.post("Classes\\UpdateDataBase.php").done(function(data) {
+	$.post("Classes/UpdateDataBase.php").done(function(data) {
 		alert("La base de donnée à été mise à jour");
 	});
 }
 
 function resetAchivedMessage() {
-	$.post("Classes\\DropDate.php").done(function(data) {
+	$.post("Classes/DropDate.php").done(function(data) {
 		alert("Les Vieux messages ont été supprimé");
     initInfoBoxTab();
 	});

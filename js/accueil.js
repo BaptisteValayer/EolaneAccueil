@@ -30,7 +30,7 @@ function findObject() {
 				filename = splitedFileName[splitedFileName.length - 1];
 				filepath = MakeWindowsLink(foundedFile.split(filename)[0]);
 				// Création d'un élément <a> qui permettra de télécharger la fiche produit
-				a = $("<a>").attr("href","Classes\\download.php?filename=" + filename + "&path=" + filepath)
+				a = $("<a>").attr("href","Classes/download.php?filename=" + filename + "&path=" + filepath)
 										.attr("download", "fichier");
 				p = $("<p>").text(splitedFileName[splitedFileName.length - 2]+"\\"+filename)
 										.css("font-size","18px");

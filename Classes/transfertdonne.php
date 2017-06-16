@@ -83,4 +83,8 @@
 		}
 		return 0;
 	}
+
+	function addIco($ImgName) {
+		exec("cp /media/val-fs01/Commun/FALLOT\ Pierre/imageSite/".$ImgName." ./img");
+	}
 ?>

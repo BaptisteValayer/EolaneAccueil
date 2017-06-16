@@ -3,7 +3,7 @@ function Bouton() {
   var self = this;
 
   this.init = function(user) {
-    $.getJSON("Classes\\UpdateBtnTab.php",function(data){
+    $.getJSON("Classes/UpdateBtnTab.php",function(data){
       self.boutons = data;
       if(user == "admin" ) { self.showAdmin(); }
       else { self.showUsers(); }
@@ -44,7 +44,7 @@ function Bouton() {
 
   this.delete = function(item) {
     idrow = item.children().first().text();
-    $.post("Classes\\DeleteBtn.php?id="+idrow).done(function(data) {
+    $.post("Classes/DeleteBtn.php?id="+idrow).done(function(data) {
   		alert("information supprimé");
       $("#TrinfoBoxDom").empty();
       self.init("admin");

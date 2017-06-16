@@ -2,6 +2,7 @@
   require_once "DAO.php";
   require_once "MaBD.php";
   require_once "bdBtnDAO.php";
+	require_once "transfertdonne.php";
 
   $maBD = new bdBtnDAO( MaBD::getInstance () );
 
@@ -11,6 +12,7 @@
 		echo "ERROR";
 	}
   $res = $maBD->insert($value);
+addIco($_GET["nomfichier"]);
   echo $res
 
  ?>
