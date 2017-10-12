@@ -19,5 +19,6 @@
 			$res = $stmt->execute ();
 			return $this->table;
 		}
+		
 	}
 ?>

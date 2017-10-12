@@ -54,7 +54,7 @@
 			// Si IPR n'existe pas dans $known_IPR alors on l'ajoute dans $known_IPR et $tabIPR
 			if (! in_array ( $worksheet->getCell ( 'A' . $row )->getValue (), $known_IPR )) {
 				array_push ( $tabIPR, array (
-						"ipr" => $worksheet->getCell ( 'A' . $row )->getValue (),
+						"of" => $worksheet->getCell ( 'A' . $row )->getValue (),
 						"article" => str_replace("/","-",$worksheet->getCell ( 'B' . $row )->getValue ())
 				) );
 

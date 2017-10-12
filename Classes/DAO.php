@@ -27,6 +27,11 @@ class DAO {
 
 			$stmt = $this->pdo->prepare ( "INSERT INTO $this->table ($fieldList) VALUES ($textRequete)" );
 			$res = $stmt->execute ($valueList);
-		}
+	}
+	
+	public function updateColums($old,$new, $newDesc) {
+		$stmt = $this->pdo->prepare ( "ALTER TABLE $this->table CHANGE $old $new $newDesc;" );
+		$res = $stmt->execute();
+	}
 }
 ?>
