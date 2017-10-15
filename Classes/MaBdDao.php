@@ -6,7 +6,7 @@
 		protected $table = "iprtable";
 
 		public function getOneArticle($key) {
-			$stmt = $this->pdo->prepare ( "SELECT article FROM $this->table WHERE ipr = ?" );
+			$stmt = $this->pdo->prepare ( "SELECT article FROM $this->table WHERE of = ?" );
 			$stmt->execute ( array (
 					$key
 			) );
@@ -19,6 +19,6 @@
 			$res = $stmt->execute ();
 			return $this->table;
 		}
-		
+
 	}
 ?>
